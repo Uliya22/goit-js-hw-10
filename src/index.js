@@ -32,16 +32,12 @@ function onFormInput() {
                 return
             }
             if (data.length >= 2 && data.length <= 10) {
-                Notify.success('Successful request to the server')
                 cleanCountryInfo();
-                renderCountryList(data);
-                
+                renderCountryList(data); 
             }
             if (data.length === 1) {
-                Notify.success('Successful request to the server')
                 cleanCountryList();
                 renderCountryInfo(data);
-               
             }
         })
         .catch(error => {
@@ -71,25 +67,6 @@ function renderCountryInfo(array) {
     .join('')
 }
 
-
-
-//             if (countries.length >= 2 && countries.length <= 10) {
-//                 countryList.innerHTML = countries.map(({ name, flags}) => {
-//                     return `<li class="country-item">
-//                               <img src="${flags.svg}" alt="flag of ${name.common}" width="30" height="20">
-//                                 <p class="country-name">${name.official}</p>
-//                              </li>`}).join('')
-//             }
-//             if (countries.length === 1) {
-    
-               
-//         }).catch(error => {
-//             cleanCountryList();
-//             return Notify.failure('Oops, there is no country with that name')
-//         })
-//     }
-// }
-
 function cleanCountryList() {
     countryList.innerHTML = '';
 }
@@ -97,67 +74,3 @@ function cleanCountryList() {
 function cleanCountryInfo() {
     countryInfo.innerHTML = '';
 }
-// // ---------------------------------------------------
-// function onFormInput(evt) {
-//     // let countryName = e.target.value.trim();
-//     // let countryName = refs.searchBox.value.trim();
-//     let countryName = searchBox.value.trim();
-//     // console.log(countryName);
-//     if (countryName === '') {
-//         return clearMarkup()
-//     }
-
-// fetchCountries(countryName)
-// .then(countries => {
-//     if (countries.length > 10) {
-//     clearMarkup();
-//     return Notify.info('Too many matches found. Please enter a more specific name.');
-//     }
-// const markup = countries.map(({ name, flags}) => {
-//             return `<li class="country-item">
-//                     <img src="${flags.svg}" alt="flag of ${name.common}" width="30" height="20">
-//                     <p class="country-name">${name.official}</p>
-//                     </li>`}).join('')
-// clearInfoMarkup();
-// // refs.countryList.innerHTML = markup;
-// countryList.innerHTML = markup;
-
-// // const title = document.querySelector("p")
-// //         console.log(title);
-
-// if (countries.length === 1) {
-    
-// const { capital, population, languages } = countries[0];   
-// const markupInfo = `<div><span class="title">Capital: </span>${capital}</div>
-//            <div><span class="title">Population: </span>${population}</div>
-//            <div><span class="title">Languages: </span>${Object.values(languages).join(', ')}</div>`;
-           
-//         //    refs.countryInfo.innerHTML = markupInfo;
-//         countryInfo.innerHTML = markupInfo
-
-//         const title = document.querySelector("p");
-//         title.classList.replace("country-name", "country-title");
-    
-           
-// }
-
-// }).catch(error => {
-//     clearMarkup();
-//     return Notify.failure('Oops, there is no country with that name')
-// })
-
-// }
-
-// function clearMarkup() {
-//     // refs.countryList.innerHTML = '';
-//     // refs.countryInfo.innerHTML = '';
-
-//     countryList.innerHTML = '';
-//     countryInfo.innerHTML = '';
-// }
-
-// function clearInfoMarkup() {
-//     // refs. countryInfo.innerHTML = '';
-
-//     countryInfo.innerHTML = '';
-// }
